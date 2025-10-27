@@ -17,10 +17,12 @@ console.log("test");
     video = document.getElementById('video'),
     vendorUrl = window.URL || window.webkitURL;
 
+    /*
     navigator.getMedia = navigator.getUserMedia ||
                          navigator.webkitGetUserMedia ||
                          navigator.mozGetUserMedia ||
                          navigator.msGetUserMedia;
+    */
 
     // https://stackoverflow.com/questions/53483975/navigator-mediadevices-getusermedia-not-working-on-ios-12-safari
     video.setAttribute('autoplay', '');
@@ -28,6 +30,7 @@ console.log("test");
     video.setAttribute('playsinline', '');
     //
 
+    /*
     navigator.getMedia ({
         video: true,
         audio: false
@@ -47,6 +50,19 @@ console.log("test");
     }, function(error) {
         // An error occured
         debugLog("error: " + error);
+    });
+    */
+
+    // https://stackoverflow.com/questions/72936834/capturing-camera-stream-in-three-js-on-ios
+    constraints = { audio: false, video: true };
+    navigator.mediaDevices.getUserMedia(constraints)
+    .then(function (stream) {
+        console.log("success");
+        video.srcObject = stream;
+        video.play();
+    })
+    .catch(function(err) {
+        console.log('ERROR: ', err);
     });
 
 
