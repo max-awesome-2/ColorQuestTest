@@ -1,6 +1,13 @@
 
-// https://stackoverflow.com/questions/69326902/html-canvas-video-streaming
+https://www.reddit.com/r/webdev/comments/g4vgum/is_there_a_way_to_view_safaris_console_without/
+console.log=function(){
+    var l=document.getElementById("debug");
+    l.innerhtml = l.innerhtml+arguments[0]+' '+(arguments[1]?arguments[1]:'')+'<br>';
+};
 
+console.log("test");
+
+// https://stackoverflow.com/questions/69326902/html-canvas-video-streaming
 (function() {
     var canvas= document.getElementById('canvas'),
     context = canvas.getContext('2d'),
