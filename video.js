@@ -31,7 +31,7 @@ video.setAttribute('playsinline', '');
 //
 
 // https://stackoverflow.com/questions/72936834/capturing-camera-stream-in-three-js-on-ios
-constraints = { audio: false, video: true };
+constraints = { audio: false, video: { facingMode: 'environment' } };
 navigator.mediaDevices.getUserMedia(constraints)
 .then(function (stream) {
     console.log("success");
