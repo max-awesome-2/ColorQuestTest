@@ -32,7 +32,7 @@ video.setAttribute('playsinline', '');
 
 // https://stackoverflow.com/questions/72936834/capturing-camera-stream-in-three-js-on-ios
 //https://stackoverflow.com/questions/52812091/getusermedia-selecting-rear-camera-on-mobile
-constraints = { audio: false, video: { facingMode: {exact: 'user' } } };
+var constraints = window.constraints = { audio: false, video: {facingMode: 'environment' } };
 navigator.mediaDevices.getUserMedia(constraints)
 .then(function (stream) {
     console.log("success");
