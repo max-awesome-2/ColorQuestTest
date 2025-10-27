@@ -12,6 +12,12 @@
                          navigator.mozGetUserMedia ||
                          navigator.msGetUserMedia;
 
+    // https://stackoverflow.com/questions/53483975/navigator-mediadevices-getusermedia-not-working-on-ios-12-safari
+    video.setAttribute('autoplay', '');
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    //
+
     navigator.getMedia ({
         video: true,
         audio: false
