@@ -17,7 +17,7 @@ console.log("test");
     video = document.getElementById('video'),
     vendorUrl = window.URL || window.webkitURL;
 
-    navigator.getMedia = navigator.getUserMedia ||
+    navigator.getMedia = navigator.mediaDevices.getUserMedia ||
                          navigator.webkitGetUserMedia ||
                          navigator.mozGetUserMedia ||
                          navigator.msGetUserMedia;
