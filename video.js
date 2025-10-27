@@ -17,13 +17,10 @@ console.log("test");
     video = document.getElementById('video'),
     vendorUrl = window.URL || window.webkitURL;
 
-    navigator.getMedia = navigator.mediaDevices.getUserMedia ||
+    navigator.getMedia = navigator.getUserMedia ||
                          navigator.webkitGetUserMedia ||
                          navigator.mozGetUserMedia ||
                          navigator.msGetUserMedia;
-
-    debugLog("got media");
-
 
     // https://stackoverflow.com/questions/53483975/navigator-mediadevices-getusermedia-not-working-on-ios-12-safari
     video.setAttribute('autoplay', '');
@@ -35,8 +32,10 @@ console.log("test");
         video: true,
         audio: false
     }, function(stream) {
+        debugLog("got stream");
         //video.src = vendorUrl.createObjectURL(stream);
         if ('srcObject' in video) {
+            debugLog("video has srcobj");
             video.srcObject = stream;
             debugLog("set video srcobj to stream");
           } else {
