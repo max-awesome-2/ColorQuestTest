@@ -44,9 +44,10 @@ console.log("test");
             video.src = vendorUrl.createObjectURL(stream);
           }
         video.play();
+        debugLog("playing video");
     }, function(error) {
         // An error occured
-        //error.code
+        debugLog("error: " + error);
     });
 
 
